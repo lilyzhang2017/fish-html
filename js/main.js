@@ -29,6 +29,7 @@ function init(){
 }
 
 function gameloop(){
+	ctx2.drawImage(bgPic,0,0);
 	window.requestAnimFrame(gameloop);//frame per second
 	var now =Date.now();
 	deltaTime=now-lastTime;
