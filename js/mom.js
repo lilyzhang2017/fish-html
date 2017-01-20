@@ -2,6 +2,7 @@ var momObj=function()
 {
 	this.x;
 	this.y;
+	this.angle;
 	this.bigEye=new Image();
 	this.bigBody=new Image();
 	this.bigTail=new Image();

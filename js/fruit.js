@@ -82,6 +82,10 @@ fruitObj.prototype.born=function(i)
 	}
 
 }
+fruitObj.prototype.dead=function(i)
+{
+	this.alive[i]=false;
+}
 function sendFruit(){
 	for(var i=0;i<fruits.num;i++)
 	{

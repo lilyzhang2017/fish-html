@@ -1,5 +1,5 @@
 
-var can1,can2,ctx1,ctx2,lastTime,deltaTime,canWidth,canHeight,ane,fruits,mon,mx,my;
+var can1,can2,ctx1,ctx2,lastTime,deltaTime,canWidth,canHeight,ane,fruits,mon,mx,my,baby;
 var bgPic=new Image();
 
 window.onload=game;
@@ -20,14 +20,21 @@ function init(){
 	bgPic.src="./image/background.jpg";
 	canWidth=can1.width;
 	canHeight=can1.height;
+	//bg
 	drawBackGround();
 	console.log('game init');
+	//bg tree
 	ane=new aneObj();
 	ane.init();
+	//食物
 	fruits=new fruitObj();
 	fruits.init();
+	//大鱼
 	mom=new momObj();
 	mom.init();
+	//小鱼
+	baby=new babyObj();
+	baby.init();
 	//鼠标
 	mx=canWidth*0.5;
 	my=canHeight*0.5;
@@ -40,12 +47,16 @@ function gameloop(){
 	window.requestAnimFrame(gameloop);//frame per second
 	var now =Date.now();
 	deltaTime=now-lastTime;
+	if(deltaTime>40) deltaTime=40;
+
 	lastTime=now;
 	ane.draw();
 	fruits.draw();
 	fruitMonitor();
 	ctx1.clearRect(0,0,canWidth,canHeight);
 	mom.draw();
+	baby.draw();
+	hitTest();
 
 	//console.log(now)
 }
